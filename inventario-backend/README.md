@@ -43,6 +43,11 @@ Solo `codigo` es obligatorio. `latitud`/`longitud` vienen del GPS y `luz` del se
 
 `fecha` es opcional: si no se envía, el servidor pone la fecha y hora actuales.
 
+## Documentación interactiva (Swagger UI)
+
+Con la aplicación en marcha, abre `/swagger-ui.html` (por ejemplo `https://aplicacion-u2.onrender.com/swagger-ui.html`).
+La especificación OpenAPI en JSON está en `/v3/api-docs`.
+
 ## Ejecutar en local
 
 1. Tener PostgreSQL con una base llamada `inventario`. Con Docker:

@@ -6,6 +6,8 @@ import com.unidad.inventario.application.port.in.ObtenerUsuarioUseCase;
 import com.unidad.inventario.domain.model.Usuario;
 import com.unidad.inventario.infrastructure.adapter.in.web.dto.UsuarioRequest;
 import com.unidad.inventario.infrastructure.adapter.in.web.dto.UsuarioResponse;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import java.util.List;
 import org.springframework.http.HttpStatus;
@@ -17,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+@Tag(name = "Usuarios", description = "API para gestión de usuarios")
 @RestController
 @RequestMapping("/usuarios")
 public class UsuarioController {
@@ -33,16 +36,19 @@ public class UsuarioController {
         this.obtenerUsuario = obtenerUsuario;
     }
 
+    @Operation(summary = "Listar todos los usuarios")
     @GetMapping
     public List<UsuarioResponse> listar() {
         return listarUsuarios.listar().stream().map(UsuarioResponse::desde).toList();
     }
 
+    @Operation(summary = "Buscar usuario por ID")
     @GetMapping("/{uid}")
     public UsuarioResponse obtener(@PathVariable String uid) {
         return UsuarioResponse.desde(obtenerUsuario.obtener(uid));
     }
 
+    @Operation(summary = "Crear un nuevo usuario")
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public UsuarioResponse crear(@Valid @RequestBody UsuarioRequest request) {

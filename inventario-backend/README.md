@@ -45,7 +45,7 @@ Solo `codigo` es obligatorio. `latitud`/`longitud` vienen del GPS y `luz` del se
 
 ## Documentación interactiva (Swagger UI)
 
-Con la aplicación en marcha, abre `/swagger-ui.html` (por ejemplo `https://aplicacion-u2.onrender.com/swagger-ui.html`).
+Con la aplicación en marcha, la dirección base (`/`) redirige a Swagger UI. También puedes abrir `/swagger-ui/index.html` (por ejemplo `https://aplicacion-u2.onrender.com/swagger-ui.html`).
 La especificación OpenAPI en JSON está en `/v3/api-docs`.
 
 ## Ejecutar en local
